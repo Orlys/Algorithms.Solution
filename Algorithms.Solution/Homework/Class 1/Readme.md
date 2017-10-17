@@ -6,3 +6,6 @@
 
 ## Workflow Diagram
 ![Workflow Diagram](https://github.com/0x0001F36D/Algorithms.Solution/blob/master/Algorithms.Solution/Homework/Class%201/Workflow%20Diagram.png)
+
+## Execution Screen
+![Workflow Diagram](https://github.com/0x0001F36D/Algorithms.Solution/blob/master/Algorithms.Solution/Homework/Class%201/runtime.gif)
