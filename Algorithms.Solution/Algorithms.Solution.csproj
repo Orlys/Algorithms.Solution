@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.136.6499</AssemblyVersion>
+    <AssemblyVersion>1.0.138.6499</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,6 +55,7 @@
     <None Include="Homework\Class 1\Readme.md" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Homework\Class 1\runtime.gif" />
     <Content Include="Homework\Class 1\Workflow Diagram.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

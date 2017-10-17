@@ -13,6 +13,7 @@ namespace Algorithms.Solution
 
         private static void Main(string[] args)
         {
+            Console.ReadKey();
             Farmer.Transport();
             Console.ReadKey();
         }
