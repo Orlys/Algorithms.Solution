@@ -131,15 +131,21 @@ namespace Algorithms.Solution.Homework.Class_1
             this.OnStart?.Invoke();
             Step();
 
-            while (LeftShore.Count != 0)
+            while (true)
             {
+                await Report("檢查左岸是否為空");
+                if (LeftShore.Count == 0)
+                {
+                    await Report("左岸為空，不進行搬運");
+                    break;
+                }
+
                 carry = LeftShore.Dequeue();
                 await Report($"將 '{carry}' 放上船");
                 Status(new StatusReportEventArgs(LeftShore, carry, RightShore));
 
                 //檢查左岸是否會發生需要避免的狀況
                 await Report("檢查左岸是否會發生需要避免的狀況");
-                await Task.Delay(delayMillisecond);
 
                 if (CheckAvoidSituation(LeftShore))
                 {
@@ -157,7 +163,7 @@ namespace Algorithms.Solution.Homework.Class_1
                     //左岸沒危險，渡河，到達右岸
                     RightShore.Enqueue(carry);
                     Status(new StatusReportEventArgs(LeftShore, RightShore));
-
+                    
                     //左岸全空
                     if (LeftShore.Count == 0)
                     {

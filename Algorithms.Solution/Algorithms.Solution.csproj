@@ -54,5 +54,8 @@
     <None Include="App.config" />
     <None Include="Homework\Class 1\Readme.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Homework\Class 1\Workflow Diagram.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
