@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // 您可以指定所有的值，或將組建編號或修訂編號設為預設值
 // 指定為預設值: 
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.138.6499")]
-[assembly: AssemblyFileVersion("2017.10.17.0638")]
+[assembly: AssemblyVersion("1.0.325.6501")]
+[assembly: AssemblyFileVersion("2017.10.19.0554")]
