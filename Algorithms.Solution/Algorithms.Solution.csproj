@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.374.6501</AssemblyVersion>
+    <AssemblyVersion>1.0.378.6502</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,6 +57,7 @@
     <Compile Include="Homework\Class 1\TransportObject.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".travis.yml" />
     <None Include="App.config" />
     <None Include="Homework\Class 1\Readme.md" />
     <None Include="Homework\Class 2\Readme.md" />
@@ -65,6 +66,9 @@
     <Content Include="Homework\Class 1\runtime.gif" />
     <Content Include="Homework\Class 1\Workflow Diagram.png" />
     <Content Include="Homework\Class 2\runtime.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

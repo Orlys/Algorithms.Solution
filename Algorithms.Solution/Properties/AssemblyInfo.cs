@@ -10,9 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Algorithms.Solution")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("Algorithms.Solution")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2017")]
+[assembly: AssemblyCopyright("Copyright © Viyrex(aka Yuyu) 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -34,5 +33,5 @@ using System.Runtime.InteropServices;
 // 您可以指定所有的值，或將組建編號或修訂編號設為預設值
 // 指定為預設值:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.374.6501")]
-[assembly: AssemblyFileVersion("2017.10.19.1052")]
+[assembly: AssemblyVersion("1.0.378.6502")]
+[assembly: AssemblyFileVersion("2017.10.19.1443")]

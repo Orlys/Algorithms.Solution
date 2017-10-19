@@ -8,13 +8,12 @@ namespace Algorithms.Solution
     using Algorithms.Solution.Utils;
     using System;
 
-    internal class Program
+    public class Program
     {
         #region Private Methods
         
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.ReadKey(true);
             DemoProvider.Selector.RunDemo(2);
             Console.ReadKey(true);
         }

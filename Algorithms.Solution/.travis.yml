@@ -1,0 +1,5 @@
+﻿language: csharp
+solution: Algorithms.Solution.sln
+install:
+  - nuget restore Algorithms.Solution.sln
+  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
