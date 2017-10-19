@@ -1,9 +1,9 @@
 language: csharp
-solution: Algorithms.Solution.UnitTest.sln
+solution: Algorithms.Solution.sln
 
 install:
- - nuget restore Algorithms.Solution.UnitTest.sln
+ - nuget restore Algorithms.Solution.sln
  - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 script:
- - xbuild /p:Configuration=Release Algorithms.Solution.UnitTest.sln
- - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./Algorithms.Solution.UnitTest/bin/Release/Algorithms.Solution.UnitTest.dll
+ - xbuild /p:Configuration=Release Algorithms.Solution.sln
+ - mono ./testrunner/NUnit.ConsoleRunner.3.7.0/tools/nunit3-console.exe ./Algorithms.Solution.UnitTest/bin/Release/Algorithms.Solution.UnitTest.dll
