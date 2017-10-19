@@ -15,18 +15,22 @@ namespace Algorithms.Solution.Homework.Class_2
         /// 咖啡
         /// </summary>
         Coffee = 1,
+
         /// <summary>
         /// 牛奶
         /// </summary>
         Milk,
+
         /// <summary>
         /// 水
         /// </summary>
         Water,
+
         /// <summary>
         /// 茶
         /// </summary>
         Tea,
+
         /// <summary>
         /// 啤酒
         /// </summary>
@@ -50,21 +54,25 @@ namespace Algorithms.Solution.Homework.Class_2
     /// </summary>
     public enum HouseColor : int
     {/// <summary>
-    /// 紅
-    /// </summary>
+     /// 紅
+     /// </summary>
         Red = 1,
+
         /// <summary>
         /// 白
         /// </summary>
         White,
+
         /// <summary>
         /// 黃
         /// </summary>
         Yellow,
+
         /// <summary>
         /// 綠
         /// </summary>
         Green,
+
         /// <summary>
         /// 藍
         /// </summary>
@@ -80,18 +88,22 @@ namespace Algorithms.Solution.Homework.Class_2
         /// 英國
         /// </summary>
         UK = 1,
+
         /// <summary>
         /// 瑞典
         /// </summary>
         Sweden,
+
         /// <summary>
         /// 挪威
         /// </summary>
         Norway,
+
         /// <summary>
         /// 丹麥
         /// </summary>
         Denmark,
+
         /// <summary>
         /// 德國
         /// </summary>
@@ -107,18 +119,22 @@ namespace Algorithms.Solution.Homework.Class_2
         /// 貓
         /// </summary>
         Cat = 1,
+
         /// <summary>
         /// 狗
         /// </summary>
         Dog,
+
         /// <summary>
         /// 鳥
         /// </summary>
         Bird,
+
         /// <summary>
         /// 馬
         /// </summary>
         Horse,
+
         /// <summary>
         /// 魚
         /// </summary>
@@ -131,7 +147,7 @@ namespace Algorithms.Solution.Homework.Class_2
 
         static Person()
         {
-            Empty = new Person() ;
+            Empty = new Person();
         }
 
         #endregion Public Constructors
@@ -142,6 +158,7 @@ namespace Algorithms.Solution.Homework.Class_2
             : this((HouseColor)houseColor, (Nationality)nationality, (Pet)pet, (Beverage)beverage, (Cigaret)cigaret)
         {
         }
+
         internal Person(HouseColor houseColor, Nationality nationality, Pet pet, Beverage beverage, Cigaret cigaret)
         {
             this.HouseColor = houseColor;
@@ -157,8 +174,8 @@ namespace Algorithms.Solution.Homework.Class_2
 
         private Person()
         {
-
         }
+
         #endregion Private Constructors
 
         #region Public Properties
@@ -204,6 +221,7 @@ namespace Algorithms.Solution.Homework.Class_2
 
             return string.Join("| ", objs);
         }
+        
 
         #endregion Public Methods
     }

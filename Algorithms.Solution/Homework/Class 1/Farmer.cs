@@ -5,10 +5,12 @@
 
 namespace Algorithms.Solution.Homework.Class_1
 {
+    using Algorithms.Solution.Utils;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
+    [Homework(1)]
     public sealed class Farmer
     {
         #region Public Constructors
@@ -92,7 +94,8 @@ namespace Algorithms.Solution.Homework.Class_1
 
         #region Public Methods
 
-        public static async void Transport(int millisecond = 1000)
+        [EntryPoint(arguments: 1000)]
+        public static async void Transport(int millisecond)
         {
             var f = new Farmer();
 
@@ -164,7 +167,7 @@ namespace Algorithms.Solution.Homework.Class_1
                     //左岸沒危險，渡河，到達右岸
                     RightShore.Enqueue(carry);
                     Status(new StatusReportEventArgs(LeftShore, RightShore));
-                    
+
                     //左岸全空
                     if (LeftShore.Count == 0)
                     {

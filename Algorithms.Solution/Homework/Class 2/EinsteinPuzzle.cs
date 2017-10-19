@@ -2,21 +2,103 @@
 // Contact: mailto:viyrex.aka.yuyu@gmail.com
 // Github: https://github.com/0x0001F36D
 
+/*
+ * 
+ *  1. There are 5 houses in five different colors. They are lined up in a row side by side.
+ *  2. In each house lives a person with a different nationality.
+ *  3. These 5 owners drink a certain drink, smoke a certain brand of tobacco and keep a certain pet.
+ *  4. No owners have the same pet, smoke the same tobacco, or drink the same drink.
+ *  5. As you look at the 5 houses from across the street, the green house is adjacent to the left of the white house.
+ *  
+ *  Q: Who owns the Fish?
+ */
 
 namespace Algorithms.Solution.Homework.Class_2
 {
+    using Algorithms.Solution.Utils;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
-    using System.Linq.Expressions;
+    using System.Threading;
     using System.Threading.Tasks;
 
-    public class EinsteinQuestion
+    [Homework(2)]
+    public class EinsteinPuzzle
     {
+        #region Public Methods
+
+        [EntryPoint(arguments: 10000)]
+        public static async void Operate(int times)
+        {
+            var cache = default(EinsteinResult);
+            var cts = new CancellationTokenSource();
+            var tsp = new List<TimeSpan>(times);
+            var eq = new EinsteinPuzzle();
+            eq.OnRunCompleted += (result) => tsp.Add(result.Consuming);
+
+            
+            RunningDisp();
+            for (int i = 0; i < times; i++)
+                cache = await eq.RunAsync();
+            cts.Cancel(false);
+
+            Console.Clear();
+
+
+            if (cache.IsSuccess)
+            {
+                foreach (var p in cache.Persons)
+                    Console.WriteLine(p);
+
+                Console.WriteLine("================================================================================");
+
+                Console.WriteLine($"{times} 次中最高耗時: { Math.Round(tsp.Max(x => x.TotalMilliseconds), 5)} ms/次");
+                Console.WriteLine($"{times} 次中平均耗時: { Math.Round(tsp.Average(x => x.TotalMilliseconds), 5)} ms/次");
+                Console.WriteLine($"{times} 次中最低耗時: { Math.Round(tsp.Min(x => x.TotalMilliseconds), 5)} ms/次");
+                Console.WriteLine();
+
+                Console.WriteLine("Q: 誰養魚?");
+                var answer = cache.Ask(x => x.Pet == Pet.Fish).FirstOrDefault().Nationality;
+                Console.WriteLine($"A: { answer  }");
+            }
+            else
+                Console.WriteLine("Failure");
+            
+
+
+            void RunningDisp()
+            {
+                Task.Run(() =>
+                {
+                    int i = 1;
+                    Loop:
+                    if (!cts.IsCancellationRequested)
+                    {
+                        if (i % 4 != 0)
+                        {
+                            Console.Write(".");
+                            Task.Delay(500).Wait();
+                            i++;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Task.Delay(500).Wait();
+                            i = 1;
+                        }
+                        goto Loop;
+                    }
+
+                },cts.Token);
+            }
+        }
+
+        #endregion Public Methods
+
         #region Public Constructors
 
-        public EinsteinQuestion()
+        public EinsteinPuzzle()
         {
             this._stopwatch = new Stopwatch();
 
@@ -51,17 +133,6 @@ namespace Algorithms.Solution.Homework.Class_2
         #endregion Public Events
 
         #region Public Methods
-        
-        public IEnumerable<Person> RunAndAsk(Expression< Predicate<Person>> question)
-            => this.Run().Ask(question);
-        public async Task<IEnumerable<Person>> RunAndAskAsync(Expression<Predicate<Person>> question)
-            => (await this.RunAsync()).Ask(question);
-
-        public async Task<EinsteinResult> RunAsync()
-        {
-            this.Init();
-            return await Task.Run(() => this.Run());
-        }
 
         public EinsteinResult Run()
         {
@@ -79,46 +150,61 @@ namespace Algorithms.Solution.Homework.Class_2
                             for (var cigaret = 1; cigaret <= 5; cigaret++)
                             {
                                 var person = new Person(houseColor, nationality, pet, beverage, cigaret);
-                                /*
 
-                                 */
-                                if (AbsoluteAssociation(person))
+                                //使用逆否命題判斷關連
+                                if (Contrapositive(person))
                                 {
+                                    //分類
+
+                                    //如果國籍為挪威，存入 _1 序列中
                                     if (person.Nationality == Nationality.Norway)
                                         this._1.Add(person);
+
+                                    //如果房屋為藍色，存入 _2 序列中
                                     else if (person.HouseColor == HouseColor.Blue)
                                         this._2.Add(person);
+
+                                    //如果喜歡的飲料為牛奶，存入 _3 序列中
                                     else if (person.Beverage == Beverage.Milk)
                                         this._3.Add(person);
+
+                                    //剩餘無法分類的存進 _45 序列中，後面要做交集用
                                     else
                                         this._45.Add(person);
                                 }
                             }
 
-
-            //鎖定一號位置
             foreach (var p1 in _1)
             {
+                //鎖定一號位置
                 this._persons[1] = p1;
                 foreach (var p2 in _2)
                 {
                     //鎖定二號位置
                     this._persons[2] = p2;
+
+                    //確定 1~2號 符合條件
                     if (PropertiesChecker(1, 2))
                         foreach (var p3 in _3)
                         {
                             //鎖定三號位置
                             this._persons[3] = p3;
+
+                            //確定 1~3號 符合條件
                             if (PropertiesChecker(1, 3))
                                 foreach (var p4 in _45)
                                 {
                                     //鎖定四號位置
                                     this._persons[4] = p4;
+
+                                    //確定 1~4號 符合條件
                                     if (PropertiesChecker(1, 4))
                                         foreach (var p5 in _45)
                                         {
                                             //鎖定五號位置
                                             _persons[5] = p5;
+
+                                            //確定 1~5號 符合條件
                                             if (PropertiesChecker(1, 5) && RelativePosition())
                                             {
                                                 //成功
@@ -138,6 +224,8 @@ namespace Algorithms.Solution.Homework.Class_2
             this.OnRunCompleted?.Invoke(r);
             return r;
 
+
+
             bool PropertiesChecker(int min, int max)
             {
                 for (int i = min; i < max; i++)
@@ -147,7 +235,13 @@ namespace Algorithms.Solution.Homework.Class_2
             }
         }
 
-        private bool AbsoluteAssociation(Person p)
+        public async Task<EinsteinResult> RunAsync()
+        {
+            this.Init();
+            return await Task.Run(() => this.Run());
+        }
+
+        private bool Contrapositive(Person p)
         {
             var contrapositive =
 
@@ -219,6 +313,6 @@ namespace Algorithms.Solution.Homework.Class_2
             return false;
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
     }
 }

@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.325.6501</AssemblyVersion>
+    <AssemblyVersion>1.0.374.6501</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils\DemoProvider.cs" />
+    <Compile Include="Utils\EntryPointAttribute.cs" />
+    <Compile Include="Utils\HomeworkAttribute.cs" />
     <Compile Include="Homework\Class 1\Farmer.cs" />
-    <Compile Include="Homework\Class 2\EinsteinQuestion.cs" />
+    <Compile Include="Homework\Class 2\EinsteinPuzzle.cs" />
     <Compile Include="Homework\Class 2\EinsteinResult.cs" />
     <Compile Include="Homework\Class 2\Person.cs" />
     <Compile Include="Program.cs" />
@@ -56,10 +59,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Homework\Class 1\Readme.md" />
+    <None Include="Homework\Class 2\Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Homework\Class 1\runtime.gif" />
     <Content Include="Homework\Class 1\Workflow Diagram.png" />
+    <Content Include="Homework\Class 2\runtime.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -54,7 +54,7 @@ namespace Algorithms.Solution.Homework.Class_2
         #region Public Methods
 
         public static EinsteinResult Success(IEnumerable<Person> result, TimeSpan consuming)
-                                    => new EinsteinResult(result, consuming);
+            => new EinsteinResult(result, consuming);
 
         public IEnumerable<Person> Ask(Expression<Predicate<Person>> question)
         {

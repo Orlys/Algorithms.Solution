@@ -1,5 +1,7 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿// Author: Viyrex(aka Yuyu)
+// Contact: mailto:viyrex.aka.yuyu@gmail.com
+// Github: https://github.com/0x0001F36D
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // 組件的一般資訊是由下列的屬性集控制。
@@ -22,7 +24,7 @@ using System.Runtime.InteropServices;
 // 下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
 [assembly: Guid("4b78b83a-9968-42a1-9b20-a57d25b4afbb")]
 
-// 組件的版本資訊由下列四個值所組成: 
+// 組件的版本資訊由下列四個值所組成:
 //
 //      主要版本
 //      次要版本
@@ -30,7 +32,7 @@ using System.Runtime.InteropServices;
 //      修訂編號
 //
 // 您可以指定所有的值，或將組建編號或修訂編號設為預設值
-// 指定為預設值: 
+// 指定為預設值:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.325.6501")]
-[assembly: AssemblyFileVersion("2017.10.19.0554")]
+[assembly: AssemblyVersion("1.0.374.6501")]
+[assembly: AssemblyFileVersion("2017.10.19.1052")]
