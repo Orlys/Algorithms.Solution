@@ -5,4 +5,4 @@ install:
   - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release Algorithms.Solution.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./Algorithms.Solution/bin/Release/Algorithms.Solution.Tests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.*/tools/nunit3-console.exe ./Algorithms.Solution.UnitTest/bin/Release/Algorithms.Solution.UnitTest.dll
