@@ -34,8 +34,7 @@ namespace Algorithms.Solution.UnitTest
 #else 
         [TestMethod]
 #endif
-
-        public async Task TestClass1()
+        public async Task Solution1()
         {
             var f = new Farmer();
 
@@ -54,7 +53,7 @@ namespace Algorithms.Solution.UnitTest
 #else 
         [TestMethod]
 #endif
-        public async Task TestClass2()
+        public async Task Solution2()
         {
             var puzzle = new EinsteinPuzzle();
 

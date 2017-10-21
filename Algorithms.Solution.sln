@@ -9,7 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Solution.UnitTes
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5FE45413-9AEB-4893-B65C-076A7F94D4B5}"
 	ProjectSection(SolutionItems) = preProject
-		.travis.yml = .travis.yml
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
