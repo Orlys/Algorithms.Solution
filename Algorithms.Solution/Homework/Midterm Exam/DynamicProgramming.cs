@@ -1,4 +1,7 @@
-﻿
+﻿// Author: Viyrex(aka Yuyu)
+// Contact: mailto:viyrex.aka.yuyu@gmail.com
+// Github: https://github.com/0x0001F36D
+
 namespace Algorithms.Solution.Homework.Midterm_Exam
 {
     using System;
@@ -7,15 +10,21 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
     [Homework(3)]
     public class DynamicProgramming
     {
+        #region Private Enums
+
         private enum Shuttle
         {
             Left,
             Right
         }
+
+        #endregion Private Enums
+
+        #region Public Methods
+
         [EntryPoint]
         public static void Run()
         {
-
             var left = new TOQ(new[] { TO.Rice, TO.Wolf, TO.Dog, TO.Chicken });
             var right = new TOQ();
             var ship = new Ship();
@@ -81,7 +90,6 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
                         switcher = Shuttle.Left;
                         goto Label_1;
                     }
-                    
             }
             disp();
             Console.ReadKey();
@@ -94,10 +102,9 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
                 Console.WriteLine(ship);
                 Console.WriteLine(right);
                 Console.WriteLine();
-
             }
-
         }
 
+        #endregion Public Methods
     }
 }
