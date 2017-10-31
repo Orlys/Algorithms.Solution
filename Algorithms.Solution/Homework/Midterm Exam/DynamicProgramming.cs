@@ -7,6 +7,11 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
     [Homework(3)]
     public class DynamicProgramming
     {
+        private enum Shuttle
+        {
+            Left,
+            Right
+        }
         [EntryPoint]
         public static void Run()
         {
@@ -15,17 +20,17 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
             var right = new TOQ();
             var ship = new Ship();
 
-            var switcher = 'l';
+            var switcher = default(Shuttle);
 
             Label_1:
             disp();
             switch (switcher)
             {
-                case 'l':
+                case Shuttle.Left:
 
                     if (left.IsEmpty && ship.IsEmpty)
                     {
-                        goto default;
+                        break;
                     }
 
                     ship.Enqueue(left.Dequeue(1));
@@ -45,15 +50,15 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
                     }
                     else
                     {
-                        switcher = 'r';
+                        switcher = Shuttle.Right;
                         goto Label_1;
                     }
 
-                case 'r':
+                case Shuttle.Right:
                     if (left.IsEmpty && !ship.IsEmpty)
                     {
                         right.Enqueue(ship.DequeueAll());
-                        goto default;
+                        break;
                     }
 
                     right.Enqueue(ship.DequeueAll());
@@ -73,19 +78,17 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
                     }
                     else
                     {
-                        switcher = 'l';
+                        switcher = Shuttle.Left;
                         goto Label_1;
                     }
-
-                default:
-                    break;
+                    
             }
             disp();
             Console.ReadKey();
 
             void disp()
             {
-                Console.ReadKey();
+                //Console.ReadKey();
                 Console.WriteLine("status: " + switcher);
                 Console.WriteLine(left);
                 Console.WriteLine(ship);

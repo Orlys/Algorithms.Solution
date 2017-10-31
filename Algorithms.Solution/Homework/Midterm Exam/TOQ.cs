@@ -42,8 +42,7 @@ namespace Algorithms.Solution.Homework.Midterm_Exam
                 foreach (var target in this._q)
                     foreach (var compare in this._q)
                     {
-                        // if (compare == null)
-                        //     continue;
+
                         if (target == compare)
                             continue;
                         if (target.Avoid.Contains(compare))

@@ -14,7 +14,7 @@ namespace Algorithms.Solution
         
         public static void Main(string[] args)
         {
-            DemoProvider.Selector.RunDemo(2);
+            DemoProvider.Selector.RunDemo(3);
             Console.ReadKey(true);
         }
 

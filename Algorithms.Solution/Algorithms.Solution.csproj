@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.381.6502</AssemblyVersion>
+    <AssemblyVersion>1.0.386.6514</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,6 +65,7 @@
     <None Include="App.config" />
     <None Include="Homework\Class 1\Readme.md" />
     <None Include="Homework\Class 2\Readme.md" />
+    <None Include="Homework\Midterm Exam\Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Homework\Class 1\runtime.gif" />
