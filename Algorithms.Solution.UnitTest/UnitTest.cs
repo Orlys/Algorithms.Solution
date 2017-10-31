@@ -67,6 +67,18 @@ namespace Algorithms.Solution.UnitTest
             Assert.AreEqual(n, Nationality.Germany);
         }
 
-#endregion Public Methods
+
+#if !MSTEST
+        [Test(Author = "Viyrex(aka Yuyu)", Description = "雞米狗狼問題")]
+#else 
+        [TestMethod]
+#endif
+        public async Task Solution3()
+        {
+            /*代補*/
+            await Task.CompletedTask;
+            
+        }
+        #endregion Public Methods
     }
 }

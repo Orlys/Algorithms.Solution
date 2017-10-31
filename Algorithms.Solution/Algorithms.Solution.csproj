@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Homework\Midterm Exam\DynamicProgramming.cs" />
+    <Compile Include="Homework\Midterm Exam\TO.cs" />
+    <Compile Include="Homework\Midterm Exam\Ship.cs" />
+    <Compile Include="Homework\Midterm Exam\TOQ.cs" />
     <Compile Include="Utils\DemoProvider.cs" />
     <Compile Include="Utils\EntryPointAttribute.cs" />
     <Compile Include="Utils\HomeworkAttribute.cs" />
