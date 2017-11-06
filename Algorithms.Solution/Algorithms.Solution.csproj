@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.393.6519</AssemblyVersion>
+    <AssemblyVersion>1.0.489.6520</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="sysglobl" />
@@ -46,6 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Homework\Class 3\Pressure\Models\Crest.cs" />
+    <Compile Include="Homework\Class 3\Pressure\Models\Trough.cs" />
+    <Compile Include="Homework\Class 3\Pressure\PressureNode.cs" />
+    <Compile Include="Homework\Class 3\Pressure\PressureStatisticalResult.cs" />
+    <Compile Include="Homework\Class 3\Pressure\PressureAnalyzer.cs" />
+    <Compile Include="Homework\Class 3\Reader\CommaSeparatedValues.cs" />
+    <Compile Include="Homework\Class 3\Sorting\ISorting.cs" />
+    <Compile Include="Homework\Class 3\Sorting\QuickSort.cs" />
+    <Compile Include="Homework\Class 3\Sorting\SortedResult.cs" />
+    <Compile Include="Homework\Class 3\Sorting\Sorting.cs" />
     <Compile Include="Homework\Midterm Exam\DynamicProgramming.cs" />
     <Compile Include="Homework\Midterm Exam\TO.cs" />
     <Compile Include="Homework\Midterm Exam\Ship.cs" />
@@ -65,17 +76,29 @@
     <None Include="App.config" />
     <None Include="Homework\Class 1\Readme.md" />
     <None Include="Homework\Class 2\Readme.md" />
+    <None Include="Homework\Class 3\ReadMe.md" />
+    <None Include="Homework\Class 3\Test Data\1-240-12.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Homework\Class 3\Test Data\233-12.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Homework\Class 3\Test Data\239-12.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Homework\Midterm Exam\Readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Homework\Class 1\runtime.gif" />
     <Content Include="Homework\Class 1\Workflow Diagram.png" />
     <Content Include="Homework\Class 2\runtime.gif" />
+    <Content Include="Homework\Class 3\runtime.gif" />
     <Content Include="Homework\Midterm Exam\runtime.gif" />
     <Content Include="Homework\Midterm Exam\Workflow Diagram.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

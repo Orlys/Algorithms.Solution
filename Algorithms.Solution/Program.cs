@@ -5,8 +5,8 @@
 
 namespace Algorithms.Solution
 {
-    using Algorithms.Solution.Utils;
     using System;
+    using Algorithms.Solution.Utils;
 
     public class Program
     {
@@ -14,7 +14,8 @@ namespace Algorithms.Solution
         
         public static void Main(string[] args)
         {
-            DemoProvider.Selector.RunDemo(3);
+            Console.ReadKey(true);
+            DemoProvider.Selector.RunDemo(4);
             Console.ReadKey(true);
         }
 
