@@ -10,6 +10,7 @@
 ![Workflow Diagram](https://github.com/0x0001F36D/Algorithms.Solution/blob/master/Algorithms.Solution/Homework/Midterm%20Exam/Workflow%20Diagram.png)
 
 ## Execution Screen
+![Workflow Diagram](https://github.com/0x0001F36D/Algorithms.Solution/blob/master/Algorithms.Solution/Homework/Midterm%20Exam/runtime.png)
 
 
 ## License

@@ -11,7 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <AssemblyVersion>1.0.386.6514</AssemblyVersion>
+    <AssemblyVersion>1.0.387.6519</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -71,6 +71,7 @@
     <Content Include="Homework\Class 1\runtime.gif" />
     <Content Include="Homework\Class 1\Workflow Diagram.png" />
     <Content Include="Homework\Class 2\runtime.gif" />
+    <Content Include="Homework\Midterm Exam\runtime.png" />
     <Content Include="Homework\Midterm Exam\Workflow Diagram.png" />
   </ItemGroup>
   <ItemGroup>
