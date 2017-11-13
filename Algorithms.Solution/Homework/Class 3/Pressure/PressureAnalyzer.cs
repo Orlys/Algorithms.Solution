@@ -11,8 +11,8 @@ namespace Algorithms.Solution.Homework.Class_3
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
-    using Algorithms.Solution.Homework.Class_3.Pressure.Models;
-    using Algorithms.Solution.Utils;
+    using Pressure.Models;
+    using Utils;
     using Reader;
     using Sorting;
 
