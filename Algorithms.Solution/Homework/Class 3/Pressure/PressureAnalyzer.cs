@@ -7,6 +7,7 @@ namespace Algorithms.Solution.Homework.Class_3
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
@@ -35,8 +36,8 @@ namespace Algorithms.Solution.Homework.Class_3
 
         #region Public Methods
 
-        [EntryPoint(5000,true)]
-        public static async void Run(int delay,bool dispalyP2P)
+        [EntryPoint(5000, true)]
+        public static async void Run(int delay, bool dispalyP2P)
         {
             var paths = new[]
             {
@@ -46,20 +47,26 @@ namespace Algorithms.Solution.Homework.Class_3
             };
             foreach (var path in paths)
             {
-                Console.Clear();
-                Console.WriteLine($"# File: {Path.GetFileName(path)}");
-                
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine($"# File: {Path.GetFileName(path)}");
 
-                var csv = CommaSeparatedValues<PressureNode>.Load(
-                    csvFilePath: path,
-                    converter: x => new PressureNode(TimeSpan.FromSeconds(double.Parse(x[0])), double.Parse(x[1])));
+                    var csv = CommaSeparatedValues<PressureNode>.Load(
+                        csvFilePath: path,
+                        converter: x => new PressureNode(TimeSpan.FromSeconds(double.Parse(x[0])), double.Parse(x[1])));
 
-                var analyzer = new PressureAnalyzer(new QuickSort<PressureNode>(x => (decimal)x.TimeStamp.TotalMilliseconds));
+                    var analyzer = new PressureAnalyzer(new QuickSort<PressureNode>(x => (decimal)x.TimeStamp.TotalMilliseconds));
 
-                var result = analyzer.Analyze(csv);
+                    var result = analyzer.Analyze(csv);
 
-                Console.WriteLine(result.PrettyPrint(dispalyP2P));
-                await Task.Delay(delay);
+                    Console.WriteLine(result.PrettyPrint(dispalyP2P));
+                    await Task.Delay(delay);
+                }
+                catch(Exception e)
+                {
+                    Debug.WriteLine(e);
+                }
             }
         }
 
@@ -100,7 +107,15 @@ namespace Algorithms.Solution.Homework.Class_3
                     trough = sorted[i];
                 }
             }
-            return new PressureStatisticalResult(first, last, crests, troughs);
+            return new PressureStatisticalResult(
+                first,
+                last,
+                crests,
+                troughs,
+                crests.Max(x => x),
+                crests.Min(x => x),
+                troughs.Max(x => x),
+                troughs.Min(x => x));
         }
 
         #endregion Public Methods

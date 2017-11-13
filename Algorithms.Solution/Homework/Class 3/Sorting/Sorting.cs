@@ -2,6 +2,7 @@
 // Contact: mailto:viyrex.aka.yuyu@gmail.com
 // Github: https://github.com/0x0001F36D
 // License: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+
 namespace Algorithms.Solution.Homework.Class_3.Sorting
 {
     using System;
@@ -9,9 +10,7 @@ namespace Algorithms.Solution.Homework.Class_3.Sorting
 
     public abstract class Sorting<T> : ISorting<T>
     {
-        private Sorting()
-        {
-        }
+        #region Protected Constructors
 
         protected Sorting(SortEvaluator<T> evaluator)
         {
@@ -19,8 +18,26 @@ namespace Algorithms.Solution.Homework.Class_3.Sorting
             this.Sort(new T[0]);
         }
 
+        #endregion Protected Constructors
+
+        #region Private Constructors
+
+        private Sorting()
+        {
+        }
+
+        #endregion Private Constructors
+
+        #region Public Properties
+
         public SortEvaluator<T> Evaluator { get; }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         public abstract SortedResult<T> Sort(IList<T> unsorted);
+
+        #endregion Public Methods
     }
 }

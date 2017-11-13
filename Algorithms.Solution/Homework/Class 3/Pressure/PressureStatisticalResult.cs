@@ -7,14 +7,21 @@ namespace Algorithms.Solution.Homework.Class_3
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
     using Pressure.Models;
 
     public sealed class PressureStatisticalResult
     {
         #region Internal Constructors
 
-        internal PressureStatisticalResult(PressureNode first, PressureNode last, IEnumerable<Crest> crests, IEnumerable<Trough> troughs)
+        internal PressureStatisticalResult(
+            PressureNode first,
+            PressureNode last,
+            IEnumerable<Crest> crests, 
+            IEnumerable<Trough> troughs,
+            Crest highestInCrests,
+            Crest lowestInCrests,
+            Trough highestInTroughs,
+            Trough lowestInTroughs)
         {
             this.First = first;
             this.Last = last;
@@ -25,6 +32,11 @@ namespace Algorithms.Solution.Homework.Class_3
                 .Concat(this.Troughs)
                 .OrderBy(x => x.TimeStamp)
                 .ToList();
+            
+            this.HighestInCrests = highestInCrests;
+            this.HighestInTroughs = highestInTroughs;
+            this.LowestInCrests = lowestInCrests;
+            this.LowestInTroughs = lowestInTroughs;
         }
 
         #endregion Internal Constructors
@@ -35,11 +47,19 @@ namespace Algorithms.Solution.Homework.Class_3
 
         public PressureNode First { get; }
 
+        public Crest HighestInCrests { get; }
+
+        public Trough HighestInTroughs { get; }
+
         public PressureNode Last { get; }
 
-        public IList<Trough> Troughs { get; }
+        public Crest LowestInCrests { get; }
+
+        public Trough LowestInTroughs { get; }
 
         public IList<PressureNode> PeakToPeak { get; }
+
+        public IList<Trough> Troughs { get; }
 
         #endregion Public Properties
 
@@ -51,15 +71,21 @@ namespace Algorithms.Solution.Homework.Class_3
 
             IEnumerable<string> p()
             {
-                yield return $"# First:   { this.First.ToString()}";
+                yield return $"# First:   {this.First.ToString()}";
                 yield return $"# Last:    {this.Last.ToString()}";
-                yield return $"# Crests:";
+
+                yield return $"# Highest in Crests  : {this.HighestInCrests}";
+                yield return $"# Lowest in Crests   : {this.LowestInCrests}";
+                yield return $"# Highest in Troughs : {this.HighestInTroughs}";
+                yield return $"# Lowest in Troughs  : {this.LowestInTroughs}";
+
                 yield return $"[";
                 for (int i = 0; i < this.Crests.Count; i++)
                 {
                     yield return $"    [{i.ToString().PadLeft(3, '0')}] {this.Crests[i].ToString()}";
                 }
                 yield return $"]";
+
                 yield return $"# Troughs:";
                 yield return $"[";
                 for (int i = 0; i < this.Troughs.Count; i++)

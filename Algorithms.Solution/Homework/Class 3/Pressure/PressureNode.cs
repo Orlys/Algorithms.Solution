@@ -7,7 +7,7 @@ namespace Algorithms.Solution.Homework.Class_3
 {
     using System;
 
-    public class PressureNode
+    public class PressureNode : IComparable<PressureNode>
     {
         #region Internal Constructors
 
@@ -28,6 +28,16 @@ namespace Algorithms.Solution.Homework.Class_3
         #endregion Public Properties
 
         #region Public Methods
+
+        int IComparable<PressureNode>.CompareTo(PressureNode other)
+        {
+            if (other.Value > this.Value)
+                return -1;
+            else if (other.Value < this.Value)
+                return 1;
+            else
+                return 0;
+        }
 
         public override string ToString() => $"Stamp: {this.TimeStamp.ToString(@"mm\:ss\.ff").PadRight(8)} | Pressure: {this.Value.ToString("F2")}";
 
